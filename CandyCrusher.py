@@ -1,14 +1,22 @@
-import requests
-import hashlib
-import json
 import random
 import time
 import sys
+import requests
+import hashlib
+import json
+
 
 class CandyCrush(object):
     def __init__(self, session):
         
         self.session = session
+        
+    def poll(self):
+    
+        params = {"_session": self.session}
+        response = requests.get("http://candycrush.king.com/api/poll", params=params)
+        self.userId = response.json()['currentUser']['userId']
+        return
 
     def extra_life(self):
         
@@ -50,8 +58,10 @@ class CandyCrush(object):
             "variant":0
         }
         
-        # we need the user ID 1694023000 and the hash secret BuFu6gBFv79BH9hk
-        dic["cs"] = hashlib.md5("%(episodeId)s:%(levelId)s:%(score)s:%(timeLeftPercent)s:1694023000:%(seed)s:BuFu6gBFv79BH9hk" % dic).hexdigest()[:6]
+        # The hash secret BuFu6gBFv79BH9hk was obtained decompiling the flash application
+        hashSecret = "BuFu6gBFv79BH9hk"
+        myHash = "%(episodeId)s:%(levelId)s:%(score)s:%(timeLeftPercent)s:" % dic + str(self.userId) + ":%(seed)s:" % dic + hashSecret
+        dic["cs"] = hashlib.md5(myHash).hexdigest()[:6]
         params = {"_session": self.session, "arg0": json.dumps(dic)}
         print "Request sent: "
         print params
@@ -80,6 +90,9 @@ if __name__ == "__main__":
         episode = int(sys.argv[2])
         level = int(sys.argv[3])
         seed = int(sys.argv[4])
+        
+        # poll the server for information
+        crusher.poll()
         
         # start by giving ourselves an extra life
         crusher.extra_life()
