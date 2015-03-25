@@ -31,7 +31,7 @@ The script requires a few parameters in order to run correctly. You can get all 
 4. Extract from the URL the `episodeID`, the `levelID` and the `seed`.
 5. Run the script using the following command:
 
-`python CandyCrusher.py sessionKey episodeID levelID seed`
+**python CandyCrusher.py sessionKey episodeID levelID seed**
 
 ## Disclaimer
 
