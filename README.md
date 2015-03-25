@@ -10,7 +10,7 @@ In order to run the script on your own machine you will need the following Pytho
 * time
 * sys
 
-You will also need a network sniffer and analizer to read the requests from the browser to the Candy Crush server. I recommend using [Fiddler](www.telerik.com/fiddler).
+You will also need a network sniffer and analizer to read the requests from the browser to the Candy Crush server. I recommend using Fiddler: www.telerik.com/fiddler.
  
 ## Getting started
 First of all, you will need to launch the Candy Crush Facebook app: https://apps.facebook.com/candycrush/
