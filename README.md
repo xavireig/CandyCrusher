@@ -24,7 +24,7 @@ The script requires a few parameters in order to run correctly. You can get all 
 
 1. Make sure that both the Facebook app and your network sniffer are running.
 2. Start the level you want to skip.
-3. Look for a request in your network sniffer that goes to the URL: `https://candycrush.king.com/api/gameStart2?arg0=episodeID&arg1=levelID&arg2=seed&_session=sessionKey`
+3. Look for a request in your network sniffer that goes to the URL:             `https://candycrush.king.com/api/gameStart2?arg0=episodeID&arg1=levelID&arg2=seed&_session=sessionKey`
 4. Extract from the URL the `episodeID`, the `levelID` and the `seed`.
 5. Run the script using the following command:
 
