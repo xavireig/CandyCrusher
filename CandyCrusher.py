@@ -43,7 +43,7 @@ class CandyCrush(object):
         
         print "Finishing episode " + str(episode) + " level " + str(level)
         if score is None:
-            score = random.randrange(100000, 1000000)
+            score = random.randrange(90000, 200000)
         
         dic = {
             "score":score,
